@@ -1,0 +1,20 @@
+{
+  "name": "blood-donor-api",
+  "version": "1.0.0",
+  "description": "this is a blood donor management system",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ajay prajapati",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.3",
+    "morgan": "^1.9.1"
+  }
+}
