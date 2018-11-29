@@ -80,7 +80,7 @@ module.exports = function() {
   router.route('/search')
     .post(function(req, res, next) {
       var condition = {};
-      console.log(req.body);
+      console.log('req.body', req.body);
       var searchQuery = map_user_request(condition, req.body);
       console.log('searchQuery', searchQuery);
       UserModel.find(searchQuery)
