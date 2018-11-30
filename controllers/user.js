@@ -10,13 +10,11 @@ var map_user_request = require('./../config/user');
 module.exports = function() {
   router.route('/')
     .get(authorize, function(req, res, next) {
-      console.log('sdklnasdlk');
       UserModel.find({})
         .exec(function(err, users) {
           if (err) {
             return next(err);
           }
-          console.log('users', users);
           res.status(200).json(users);
         })
     })
@@ -69,10 +67,10 @@ module.exports = function() {
               if (err) {
                 return next(err);
               }
-              res.json(user);
+              res.status(200).json(user);
             });
           } else {
-            res.json({
+            res.status(404).json({
               message: 'user not found'
             })
           }
