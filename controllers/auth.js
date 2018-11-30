@@ -42,7 +42,6 @@ function createMailOptions(data) {
 module.exports = function() {
   router.route('/register')
     .post(function(req, res, next) {
-      console.log(req.body);
       newUser = new UserModel({});
       mappedNewUser = map_user_request(newUser, req.body);
       mappedNewUser.save(function(err, user) {

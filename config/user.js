@@ -20,11 +20,8 @@ module.exports = function map_user_request(user, userdetails) {
   if (userdetails.phoneNo) {
     user.phoneNo = userdetails.phoneNo;
   }
-  if (userdetails.address.district) {
-    user.address.district = userdetails.address.district;
-  }
-  if (userdetails.address.area) {
-    user.address.area = userdetails.address.area;
+  if (userdetails.district) {
+    user.district = userdetails.district;
   }
   if (userdetails.dateOfBirth) {
     user.dateOfBirth = userdetails.dateOfBirth;

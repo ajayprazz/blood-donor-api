@@ -10,11 +10,13 @@ var map_user_request = require('./../config/user');
 module.exports = function() {
   router.route('/')
     .get(authorize, function(req, res, next) {
+      console.log('sdklnasdlk');
       UserModel.find({})
         .exec(function(err, users) {
           if (err) {
             return next(err);
           }
+          console.log('users', users);
           res.status(200).json(users);
         })
     })
@@ -80,9 +82,7 @@ module.exports = function() {
   router.route('/search')
     .post(function(req, res, next) {
       var condition = {};
-      console.log('req.body', req.body);
       var searchQuery = map_user_request(condition, req.body);
-      console.log('searchQuery', searchQuery);
       UserModel.find(searchQuery)
         .exec(function(err, users) {
           if (err) {
