@@ -2,6 +2,7 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 module.exports = function map_user_request(user, userdetails) {
+
   if (userdetails.name) {
     user.name = userdetails.name;
   }
@@ -20,8 +21,21 @@ module.exports = function map_user_request(user, userdetails) {
   if (userdetails.phoneNo) {
     user.phoneNo = userdetails.phoneNo;
   }
-  if (userdetails.district) {
-    user.district = userdetails.district;
+  if (userdetails.address) {
+    var details = userdetails.address;
+    if (details.district) {
+      if (details.area) {
+        user.address = {
+          'district': details.district,
+          'area': details.area
+        }
+      } else {
+        user['address.district'] = details.district
+      }
+    }
+    if (details.area) {
+      user['address.area'] = details.area
+    }
   }
   if (userdetails.dateOfBirth) {
     user.dateOfBirth = userdetails.dateOfBirth;
@@ -29,5 +43,7 @@ module.exports = function map_user_request(user, userdetails) {
   if (userdetails.role) {
     user.role = userdetails.role;
   }
+
   return user;
+
 }

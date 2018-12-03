@@ -30,9 +30,12 @@ const userSchema = new Schema({
     type: Date,
     required: true
   },
-  district: {
-    type: String,
-    required: true
+  address: {
+    district: {
+      type: String,
+      required: true
+    },
+    area: String
   },
   role: {
     type: Number, //1-admin 2-normal

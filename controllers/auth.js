@@ -43,7 +43,9 @@ module.exports = function() {
   router.route('/register')
     .post(function(req, res, next) {
       newUser = new UserModel({});
+      console.log('req.body', req.body);
       mappedNewUser = map_user_request(newUser, req.body);
+      console.log('mapped user', mappedNewUser);
       mappedNewUser.save(function(err, user) {
         if (err) {
           return next(err);
